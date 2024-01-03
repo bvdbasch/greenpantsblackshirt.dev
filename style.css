@@ -1,0 +1,215 @@
+/* I am creating a Windows 3.1 Look here and I don't know why :/ */
+body {
+    background-color: teal;
+    font-family: 'fixedsys', monospace;
+    color: white;
+}
+
+/* Main page wrapper */
+/* Note to self: use media queries here later to remove the spacers by changing the grid template areas */
+#container {
+    display: grid;
+    grid-template-areas:
+        "left middle right";
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+/* This is a spacer and is only needed on bigger screens */
+#left {
+    background-color: yellow;
+    grid-area: right;
+}
+
+/* This is where the posts are rendered */
+#middle {
+    display: grid;
+    grid-template-areas:
+        "header-ui-close header-ui-program header-ui-min-max"
+        "content-ui-left content-ui-content content-ui-right"
+        "footer-ui-left footer-ui-footer footer-ui-right"
+    ;
+    /* Note to self: use a min max function here later to assure min height, but grow as needed! */
+    grid-template-rows: 25px auto 25px;
+    grid-template-columns: 25px auto 50px;
+}
+
+/* User interface - close button */
+#ui-close-button {
+    grid-area: header-ui-close;
+    display: grid;
+    grid-template-areas:
+        "a b"
+        "a c"
+    ;
+    grid-template-columns: 4px 21px;
+    grid-template-rows: 4px 21px;
+}
+
+#ui-close-button-top {
+    grid-area: b;
+    background-color: rgb(104, 104, 104);
+    border-color: black;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+}
+
+#ui-close-button-left {
+    grid-area: a;
+    background-color: rgb(104, 104, 104);
+    border-color: black;
+    border-style: solid;
+    border-width: 1px 0px 1px 1px;
+}
+
+#ui-close-button-inner {
+    grid-area: c;
+    display: flex;
+    background-color: rgb(179, 179, 179);
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    text-shadow: 1px 1px 0 #7A7A7A;
+    -webkit-text-stroke: 0.5px black;
+}
+
+/* User interface - program name */
+#ui-header-pane {
+    grid-area: header-ui-program;
+    display: grid;
+    grid-template-areas:
+        "a"
+        "b"
+    ;
+    grid-template-rows: 5px 20px;
+    grid-template-columns: 1fr;
+}
+
+#ui-header-top {
+    grid-area: a;
+    background-color: rgb(104, 104, 104);
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: black;
+}
+
+#ui-header-program-name {
+    grid-area: b;
+    display: flex;
+    background-color: rgb(4, 47, 110);
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: black;
+}
+
+#ui-min-max-buttons {
+    display: grid;
+    grid-area: header-ui-min-max;
+    grid-template-areas:
+        "min-top max-top"
+        "min-btn max-btn"
+    ;
+    grid-template-rows: 5px 20px;
+    grid-template-columns: 21px 21px;
+    background-color: red;
+}
+
+#ui-min-button-top {
+    grid-area: min-top;
+    background-color: rgb(104, 104, 104);
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: black;
+}
+
+#ui-min-button-inner-container {
+    display: grid;
+    grid-area: min-btn;
+    grid-template-areas:
+        "a a a b"
+        "c g d b"
+        "c e d b"
+        "f f f b"
+    ;
+    grid-template-rows: 1px 16px 1px 1px;
+    grid-template-columns: 1px 17px 1px 1px;
+    background-color: rgb(179, 179, 179);
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+#ui-min-button-depth-top-white {
+    grid-area: a;
+    background-color: rgb(255, 255, 255);
+}
+
+#ui-min-button-depth-top-gray {
+    grid-area: b;
+    background-color: rgb(104, 104, 104);
+}
+
+#ui-min-button-symbol {
+    grid-area: g;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    font-size: 10px;
+}
+
+#ui-min-button-depth-left-white {
+    grid-area: c;
+    background-color: rgb(255, 255, 255);
+}
+
+#ui-min-button-depth-right-gray {
+    grid-area: d;
+    background-color: rgb(104, 104, 104);
+}
+
+#ui-min-button-depth-inset-gray {
+    grid-area: e;
+    background-color: rgb(104, 104, 104);
+}
+
+#ui-min-button-depth-bottom-gray {
+    grid-area: f;
+    background-color: rgb(104, 104, 104);
+}
+
+#content {
+    grid-area: content-ui-content;
+    background-color: blueviolet;
+}
+
+#footer {
+    grid-area: footer-ui-footer;
+    background-color: darkgoldenrod;
+}
+
+/* This is a spacer and is only needed on bigger screens */
+#right {
+    grid-area: left;
+    background-color: green;
+}
+
+#test {
+    background-color: rgb(179, 179, 179);
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+#test-inner {
+    border: 1px outset;
+    height: 98%;
+    background-color: rgb(179, 179, 179);
+}
